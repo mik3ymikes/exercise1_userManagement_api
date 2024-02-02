@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+   
+    
+    def index
+    user=User.all
+    render json:user
+   end
+
+
+
     def create
         user=User.create(user_params)
         if user.save
@@ -7,6 +16,9 @@ class UsersController < ApplicationController
             render json: {error: "unable to create"}
         end
     end
+
+
+    
 
 
 
