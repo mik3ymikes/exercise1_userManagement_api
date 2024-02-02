@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if user.save
         render json: user
     else
-        render json: {error: "unable to create"}
+        render json: {error: "unable to show"}
     end
    end
 
@@ -27,6 +27,15 @@ class UsersController < ApplicationController
         end
     end
 
+
+    def update
+        user = User.find(params[:id])
+        if user.update(user_params)
+        render json: user
+        else
+            render json: {error: "unable to update"}
+        end
+       end
 
     
 
